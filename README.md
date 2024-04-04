@@ -9,3 +9,5 @@
 % gcc wanco.c
 % ./a.out
 ```
+
+Play with keys: TAB, SPACE
