@@ -34,3 +34,24 @@
 - [lib/Keyboard.h](lib/Keyboard.h) キーボード
 - [lib/Mover.h](lib/Mover.h) スプライトの移動
 - [lib/MoverManager.h](lib/MoverManager.h) スプライトの移動管理
+
+## にゃんこかわくだり
+
+```sh
+gcc kawakudari.c
+./a.out
+```
+
+## AtoZはやうちゲーム
+
+```sh
+gcc a2z.c
+./a.out
+```
+
+## キーコードチェックツール
+
+```sh
+gcc keycheck.c
+./a.out
+```
