@@ -6,7 +6,7 @@ typedef struct Keyboard{
 Keyboard* Keyboard_(Keyboard* p){
     struct termios ti;
     tcgetattr( STDIN_FILENO, &ti);
-    ti.c_lflag &= ~(ICANON);
+    ti.c_lflag &= ~(ICANON|ECHO);
     tcsetattr( STDIN_FILENO, TCSANOW, &ti);
     fcntl(STDIN_FILENO, F_SETFL, O_NONBLOCK);
     return p;
