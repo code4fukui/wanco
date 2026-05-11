@@ -1,57 +1,105 @@
-# わんこ大喧嘩
+# Wanco (わんこ大喧嘩)
 
-これは C言語 による ターミナルゲーム の土台です。
+> 日本語のREADMEはこちらです: [README.ja.md](README.ja.md)
 
-## 使い方
+A simple terminal-based tower defense game written in C, where you deploy dog-like "wanco" units to attack an enemy base. This project serves as a foundation for building games that run in a standard terminal.
 
-[ macos ]
 ```
-% gcc wanco.c
-% ./a.out
+ [##########]
+
+    _
+   / \
+  / _ \
+  | x |
+  | = |
+  | _ |
+  |! !|
+  ||_||
+
+
+                                  /----\
+                                 | O  O |
+                                 |  ==  |
+                                  \----/
+                                                                              _
+                                                                             / \
+                                                                            / _ \
+                                                                            | + |
+                                                                            | = |
+                                                                            | _ |
+                                                                            |! !|
+                                                                            ||_||
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+
+                                                                ------- =======
+                                                                 wanco  |noppo|
+                                                                ------- =======
 ```
 
-## キー操作
+## Gameplay
 
-- タブキー: わんこ選択
-- スペースキー: わんこ生産
-- ESCキー: 終了
+Deploy units from your base on the right to destroy the enemy base on the left. Use the selection and production keys to spawn different types of "wanco" units, each with different stats.
 
-## ファイル別解説
+### Controls
 
-### わんこ大喧嘩
+-   **Tab**: Select unit type
+-   **Space**: Deploy selected unit
+-   **ESC**: Exit the game
 
-- [wanco.c](wanco.c) わんこ大喧嘩メイン
-- [wanco.h](wanco.h) わんこ大喧嘩固有の関数群
-- [wanco_res.h](wanco_res.h) わんこ大喧嘩用リソース
+## Getting Started
 
-### ライブラリ
+### Requirements
 
-- [lib/Button.h](lib/Button.h) ボタン
-- [lib/ButtonManager.h](lib/ButtonManager.h) ボタン管理
-- [lib/Image.h](lib/Image.h) 画像
-- [lib/Sprite.h](lib/Sprite.h) スプライト
-- [lib/Screen.h](lib/Screen.h) 画面
-- [lib/Keyboard.h](lib/Keyboard.h) キーボード
-- [lib/Mover.h](lib/Mover.h) スプライトの移動
-- [lib/MoverManager.h](lib/MoverManager.h) スプライトの移動管理
+-   A POSIX-compliant system (e.g., Linux, macOS)
+-   GCC or a compatible C compiler
 
-## にゃんこかわくだり
+### Installation & Running
+
+Clone the repository, then compile and run the main game file:
 
 ```sh
-gcc kawakudari.c
-./a.out
+gcc wanco.c && ./a.out
 ```
 
-## AtoZはやうちゲーム
+## Included Games & Utilities
 
-```sh
-gcc a2z.c
-./a.out
-```
+This repository contains several other small games and tools built with the same library components.
 
-## キーコードチェックツール
+-   **Nyanko Kawakudari (にゃんこかわくだり)**: A simple avoidance game.
+    ```sh
+    gcc kawakudari.c && ./a.out
+    ```
 
-```sh
-gcc keycheck.c
-./a.out
-```
+-   **AtoZ Hayauchi Game (AtoZはやうちゲーム)**: A typing speed game.
+    ```sh
+    gcc a2z.c && ./a.out
+    ```
+
+-   **Keycode Check Tool (キーコードチェックツール)**: A utility to display keycodes.
+    ```sh
+    gcc keycheck.c && ./a.out
+    ```
+
+## Project Structure
+
+The project is split into the main game logic and a set of reusable libraries.
+
+### Main Game Files
+
+-   [wanco.c](wanco.c): Main game loop and initialization.
+-   [wanco.h](wanco.h): Core game functions and object definitions.
+-   [wanco_res.h](wanco_res.h): ASCII art resources for all game entities.
+
+### Library Files
+
+-   [lib/Screen.h](lib/Screen.h): Handles terminal screen buffer and rendering.
+-   [lib/Image.h](lib/Image.h): Defines the structure for ASCII art images.
+-   [lib/Sprite.h](lib/Sprite.h): Manages sprites, their positions, and images.
+-   [lib/Keyboard.h](lib/Keyboard.h): Handles non-blocking keyboard input.
+-   [lib/Button.h](lib/Button.h): Implements button UI elements.
+-   [lib/ButtonManager.h](lib/ButtonManager.h): Manages a collection of buttons.
+-   [lib/Mover.h](lib/Mover.h): Defines logic for sprite movement patterns (e.g., falling).
+-   [lib/MoverManager.h](lib/MoverManager.h): Manages all active movers in the game.
